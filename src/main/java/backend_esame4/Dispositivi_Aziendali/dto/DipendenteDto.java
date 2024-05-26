@@ -26,8 +26,8 @@ public class DipendenteDto {
     @NotBlank(message = "L'email non può essere vuota")
     private String email;
 
-    
-    private List<Dispositivo> dispositivi;
+
+    private List<Long> dispositiviId;
 
 
 }

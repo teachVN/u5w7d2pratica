@@ -67,7 +67,7 @@ public class DipendenteService {
             }
 
             else {
-                throw new DispositivoNonTrovatoException("Dispositivo con id=" + dipendenteDto.getDispositivi() + " non trovato");
+                throw new DispositivoNonTrovatoException("Dispositivo con id=" + dipendenteDto.getDispositiviId() + " non trovato");
             }
         }
         else {

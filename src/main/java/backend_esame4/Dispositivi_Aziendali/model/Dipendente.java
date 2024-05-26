@@ -22,6 +22,6 @@ public class Dipendente {
     private String foto;
 
 
-    @OneToMany(mappedBy = "dipendente", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "dipendente", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Dispositivo> dispositivi;
 }
