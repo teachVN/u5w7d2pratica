@@ -35,7 +35,6 @@ public class DipendenteService {
         dipendente.setNome(dipendenteDto.getNome());
         dipendente.setCognome(dipendenteDto.getCognome());
         dipendente.setEmail(dipendenteDto.getEmail());
-        dipendente.setFoto(dipendenteDto.getFoto());
 
         dipendenteRepository.save(dipendente);
         return "Dipendente con username " + dipendente.getUsername() + " salvato correttamente";
@@ -57,7 +56,6 @@ public class DipendenteService {
             dipendente.setNome(dipendenteDto.getNome());
             dipendente.setCognome(dipendenteDto.getCognome());
             dipendente.setEmail(dipendenteDto.getEmail());
-            dipendente.setFoto(dipendenteDto.getFoto());
 
             Optional<Dispositivo> dispositivoOptional = dispositivoRepository.findById((long) dipendenteDto.getUsername());
 
@@ -92,9 +90,9 @@ public class DipendenteService {
     public String patchFotoDipendente(int username, MultipartFile foto) throws IOException {
         Optional<Dipendente> dipendenteOptional = getDipendenteByUsername(username);
 
-        if(dipendenteOptional.isPresent()){
-            String url = (String) cloudinary.uploader().upload(foto.getBytes(), Collections.emptyMap()).get("url");
-            Dipendente dipendente = dipendenteOptional.get();
+        if(dipendenteOptional.isPresent()){           //upload invio della foto    prendiamo la mappa   get da il valore di map
+            String url = (String) cloudinary.uploader().upload(foto.getBytes(), Collections.emptyMap()).get("url");  //restituisce una mappa. Da questa estraiamo il valore della chiave url
+            Dipendente dipendente = dipendenteOptional.get(); //estrazione del dipendente e associazione
             dipendente.setFoto(url);
             dipendenteRepository.save(dipendente);
             return "Dipendente con username=" + username + " aggiornato correttamente con la foto inviata";
