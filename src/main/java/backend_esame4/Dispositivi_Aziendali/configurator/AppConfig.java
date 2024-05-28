@@ -11,7 +11,7 @@ import java.util.Map;
 
 @Configuration
 public class AppConfig {
-    @Bean
+    //@Bean
     // creo classe di tipo cloudinary
     public Cloudinary getCloudinary(@Value("${cloudinary.name}") String name,   //proprietà con valori
                                     @Value("${cloudinary.apikey}") String apikey,

@@ -10,7 +10,7 @@ import lombok.Data;
 public class Dispositivo {
     @Id
     @GeneratedValue
-    private long id;
+    private int id;
     @Enumerated(EnumType.STRING)
     private StatoDispositivo statoDispositivo;
 
